@@ -353,7 +353,7 @@ function handleOrderSubmission() {
   }
 }
 
-// Attach FAB scroll handler after DOM loads
+// Attach FAB scroll handler and Clear Order handler after DOM loads
 document.addEventListener('DOMContentLoaded', function() {
   var fab = document.getElementById('fab-goto-order');
   if (fab) {
@@ -361,6 +361,14 @@ document.addEventListener('DOMContentLoaded', function() {
       var summary = document.getElementById('order-summary');
       if (summary) {
         summary.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+  var clearBtn = document.getElementById('clear-order-btn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      if (confirm('Do you want to clear the current order?')) {
+        clearOrder();
       }
     });
   }

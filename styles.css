@@ -1,3 +1,64 @@
+/* FAB stack for right-side vertical alignment */
+/* Remove .fab-stack, use individual fixed positions for each button */
+
+/* Mini clear order button */
+.fab-clear-mini {
+  position: static;
+  width: 220px;
+  max-width: 90vw;
+  height: 100%;
+  border-radius: 2.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  background: linear-gradient(135deg, #ff5e62 0%, #ff9966 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 0;
+  min-width: 0;
+  padding: 0.9em 2.2em;
+  transition: box-shadow 0.2s, background 0.3s, color 0.2s, transform 0.18s cubic-bezier(.4,0,.2,1);
+  outline: none;
+  user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  opacity: 0.92;
+}
+.fab-clear-mini:active, .fab-clear-mini.fab-pressed {
+  transform: scale(0.92) skew(-8deg, 0deg);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+  color: #fff;
+}
+.fab-clear-text {
+  font-size: 1.13em;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+/* Clear Order FAB (bottom left) */
+.fab-clear {
+  left: 2.5em;
+  right: auto;
+  background: linear-gradient(135deg, #ff4444 0%, #ffbb00 100%);
+  color: #fff;
+  border: 2px solid #ff4444;
+}
+.fab-clear:active, .fab-clear.fab-pressed {
+  background: linear-gradient(135deg, #ffbb00 0%, #ff4444 100%);
+  color: #fff;
+  border-color: #ffbb00;
+}
 /* FAB label inside button styling */
 .fab-basic {
   display: flex;
@@ -6,6 +67,26 @@
   justify-content: center;
   gap: 0.15em;
   text-align: center;
+  position: static;
+  width: 220px;
+  max-width: 90vw;
+  height: 100%;
+  border-radius: 2.5em;
+}
+
+/* FAB Button Stack for right-aligned vertical stacking */
+.fab-btn-stack {
+  position: fixed;
+  left: 2.5em;
+  right: 2.5em;
+  bottom: 5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+  z-index: 100;
+  height: 72px;
 }
 .fab-main-text {
   display: block;
@@ -611,10 +692,10 @@ main h2 {
   cursor: pointer;
   transition: box-shadow 0.2s, background 0.3s, color 0.2s, transform 0.18s cubic-bezier(.4,0,.2,1);
   will-change: transform;
-  position: fixed;
-  bottom: 5em;
-  right: 2.5em;
-  z-index: 100;
+  position: static;
+  width: 220px;
+  max-width: 90vw;
+  height: 100%;
   user-select: none;
   touch-action: manipulation;
 }
