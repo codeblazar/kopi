@@ -343,7 +343,7 @@ header p:last-of-type {
 
 /* Main content */
 main {
-  margin-bottom: 3rem; /* Reduced to reasonable spacing */
+  margin-bottom: 1rem; /* Reduced top spacing */
 }
 
 main h2 {
@@ -958,7 +958,7 @@ main h2 {
   border: 2px solid #ddd;
   border-radius: 1rem;
   padding: 1.5rem;
-  margin-bottom: 3rem; /* Reduced space - just enough to clear the footer */
+  margin-bottom: 10rem; /* Consistent base value matching desktop */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1163,6 +1163,11 @@ main h2 {
   .modal-content {
     max-height: calc(100vh - 120px); /* Account for footer height */
   }
+  
+  /* Desktop-specific spacing for order summary */
+  #order-summary {
+    margin-bottom: 10rem; /* Significantly increased for desktop footer clearance */
+  }
 }
 
 @media (max-width: 480px) {
@@ -1222,7 +1227,7 @@ main h2 {
   
   #order-summary {
     padding: 1rem;
-    margin-bottom: 2rem; /* Reasonable mobile spacing */
+    margin-bottom: 6rem; /* Reduced mobile spacing for better proportions */
   }
   
   #order-summary h2 {
