@@ -303,7 +303,7 @@ body {
   background: linear-gradient(135deg, #f5f3f0 0%, #e8e5e1 100%);
   color: #2c1810;
   min-height: 100vh;
-  padding-bottom: 100px; /* Account for fixed footer */
+  padding-bottom: 150px; /* Increased base padding for better footer clearance */
 }
 
 /* Header styling */
@@ -958,7 +958,7 @@ main h2 {
   border: 2px solid #ddd;
   border-radius: 1rem;
   padding: 1.5rem;
-  margin-bottom: 10rem; /* Consistent base value matching desktop */
+  margin-bottom: 2rem; /* Reduced to allow body padding to handle footer clearance */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1144,6 +1144,7 @@ main h2 {
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
+    padding-bottom: 180px; /* Increased desktop footer clearance */
   }
   
   .coffee-list {
@@ -1164,16 +1165,16 @@ main h2 {
     max-height: calc(100vh - 120px); /* Account for footer height */
   }
   
-  /* Desktop-specific spacing for order summary */
+  /* Desktop-specific spacing for order summary - reduced */
   #order-summary {
-    margin-bottom: 10rem; /* Significantly increased for desktop footer clearance */
+    margin-bottom: 2rem; /* Consistent with base, let body padding handle clearance */
   }
 }
 
 @media (max-width: 480px) {
   body {
     padding: 0.5rem;
-    padding-bottom: 120px; /* Extra space for footer on mobile */
+    padding-bottom: 140px; /* Adequate mobile footer clearance */
   }
   
   header {
@@ -1227,7 +1228,7 @@ main h2 {
   
   #order-summary {
     padding: 1rem;
-    margin-bottom: 6rem; /* Reduced mobile spacing for better proportions */
+    margin-bottom: 2rem; /* Consistent with base, let body padding handle clearance */
   }
   
   #order-summary h2 {
