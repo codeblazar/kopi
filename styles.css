@@ -685,6 +685,70 @@ main h2 {
   100% { transform: scale(1); }
 }
 
+/* Success state for items when added */
+.coffee-item.just-added {
+  background: #e8f5e8 !important;
+  border-color: #4caf50 !important;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3) !important;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+.coffee-item.just-added .coffee-name {
+  color: #2e7d32 !important;
+}
+
+/* Success state for add button */
+.btn-add.just-added {
+  background: #4caf50 !important;
+  color: white;
+  transform: scale(0.95);
+  transition: all 0.2s ease;
+}
+
+.btn-add.success-text {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+}
+
+/* Add success indicator text */
+.add-success-indicator {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeInOut 1.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-50%) translateX(10px); }
+  30% { opacity: 1; transform: translateY(-50%) translateX(0px); }
+  70% { opacity: 1; transform: translateY(-50%) translateX(0px); }
+  100% { opacity: 0; transform: translateY(-50%) translateX(-10px); }
+}
+
+/* Mobile-specific adjustments for success feedback */
+@media (max-width: 480px) {
+  .add-success-indicator {
+    right: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .coffee-item.just-added {
+    transform: scale(1.01); /* Slightly less scaling on mobile */
+  }
+  
+  .btn-add.success-text {
+    font-size: 0.8rem !important;
+  }
+}
+
 /* Add/modify button styling */
 .btn-add {
   width: 48px;

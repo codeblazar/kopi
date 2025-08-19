@@ -468,6 +468,9 @@ function handleAddFromSummary(variant) {
     }
   }
   
+  // Show visual feedback for the add action (try menu item first, then summary)
+  showAddedFeedback(variant);
+  
   // Only update summary
   updateSummary();
 }
@@ -521,8 +524,51 @@ function handleAdd(variant) {
     }
   }
   
+  // Show visual feedback for the add action
+  showAddedFeedback(variant);
+  
   // Only update summary - no main menu quantities
   updateSummary();
+}
+
+// Show visual feedback when item is added
+function showAddedFeedback(variant) {
+  const menuItem = document.querySelector(`[data-variant="${variant}"]`);
+  const addButton = menuItem?.querySelector('.btn-add');
+  
+  if (!menuItem || !addButton) return;
+  
+  // Store original button text
+  const originalText = addButton.textContent;
+  
+  // Add success classes
+  menuItem.classList.add('just-added');
+  addButton.classList.add('just-added', 'success-text');
+  
+  // Change button text to checkmark
+  addButton.textContent = '✓ Added';
+  
+  // Add success indicator
+  const successIndicator = document.createElement('span');
+  successIndicator.className = 'add-success-indicator';
+  successIndicator.textContent = '✓ Added to order';
+  menuItem.style.position = 'relative';
+  menuItem.appendChild(successIndicator);
+  
+  // Reset after animation
+  setTimeout(() => {
+    // Remove success classes
+    menuItem.classList.remove('just-added');
+    addButton.classList.remove('just-added', 'success-text');
+    
+    // Restore original button text
+    addButton.textContent = originalText;
+    
+    // Remove success indicator
+    if (successIndicator.parentNode) {
+      successIndicator.parentNode.removeChild(successIndicator);
+    }
+  }, 1500); // Match the CSS animation duration
 }
 
 // Handle removing items
