@@ -648,6 +648,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize feedback modal
   initializeFeedbackModal();
+  
+  // Initialize about modal
+  initializeAboutModal();
 });
 
 // Update footer button functionality
@@ -725,6 +728,44 @@ function initializeFeedbackModal() {
     // Close modal and show success message
     closeModal();
     alert('Thank you for your feedback! Your email client should open with the change request ready to send.');
+  });
+}
+
+// About Modal Functionality
+function initializeAboutModal() {
+  const aboutBtn = document.getElementById('about-btn');
+  const modal = document.getElementById('about-modal');
+  const closeBtn = document.getElementById('close-about');
+  
+  // Open modal
+  aboutBtn.addEventListener('click', () => {
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  });
+  
+  // Close modal function
+  function closeModal() {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; // Restore scroll
+  }
+  
+  // Close modal events
+  closeBtn.addEventListener('click', closeModal);
+  
+  // Close modal on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
+      closeModal();
+    }
   });
 }
 

@@ -24,6 +24,9 @@
 
 .footer-feedback {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .feedback-btn {
@@ -198,6 +201,41 @@
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Version History Styles */
+.version-history {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.version-entry {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #ddd;
+}
+
+.version-entry:nth-child(1) { border-left-color: #2196f3; }
+.version-entry:nth-child(2) { border-left-color: #4caf50; }
+.version-entry:nth-child(3) { border-left-color: #ff9800; }
+.version-entry:nth-child(4) { border-left-color: #9c27b0; }
+
+.version-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.version-entry ul {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.version-entry li {
+  margin-bottom: 0.25rem;
 }
 
 .footer-btn {
