@@ -16,12 +16,12 @@
   <!-- Main app header with branding -->
   <header role="banner">
     <h1>SingaKopi ☕</h1>
-    <p>Authentic Singapore Coffee Experience</p>
+    <p>Authentic Singapore Coffee Experience <span class="version">(V2.0)</span></p>
     <p>Made with 💕 by School of InfoComm Republic Polytechnic</p>
   </header>
 
   <!-- Coffee selection menu -->
-  <main role="main" aria-labelledby="menu-title">
+  <main role="main">
     <section>
       <!-- Coffee variants list - populated dynamically by JavaScript -->
       <ul class="coffee-list" id="coffee-list" role="list">
@@ -39,20 +39,51 @@
   </section>
 
 
-  <!-- Floating Action Buttons -->
-  <div class="fab-btn-stack">
-    <button id="clear-order-btn" class="fab-clear-mini" type="button" aria-label="Clear order">
-      <span class="fab-clear-text"><span>Clear</span><span>Order</span></span>
-    </button>
-    <button id="fab-goto-order" class="fab-basic" type="button" aria-label="Go to order summary">
-      <span class="fab-main-text">View Order</span>
-    </button>
-  </div>
-
-  <!-- Footer with app info -->
-  <footer role="contentinfo" class="footer-centered">
-    <p>&copy; 2025 SingaKopi - Kopi so strong, can code overnight lah! ☕💻</p>
+  <!-- Footer with action buttons -->
+  <footer class="action-footer">
+    <div class="footer-buttons">
+      <button id="clear-order-btn" class="footer-btn clear-btn" type="button" aria-label="Clear order">
+        Clear Order
+      </button>
+      <button id="fab-goto-order" class="footer-btn view-btn" type="button" aria-label="Go to order summary">
+        View Order
+      </button>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2025 SingaKopi - Kopi so strong, can code overnight lah! ☕💻</p>
+    </div>
+    <div class="footer-feedback">
+      <button id="feedback-btn" class="feedback-btn" type="button" aria-label="Send feedback to developer">
+        💌 Developer Change Request
+      </button>
+    </div>
   </footer>
+
+  <!-- Feedback Modal -->
+  <div id="feedback-modal" class="modal" role="dialog" aria-labelledby="feedback-title" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="feedback-title">Developer Change Request</h3>
+        <button id="close-feedback" class="close-btn" type="button" aria-label="Close feedback form">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="feedback-form">
+          <div class="form-group">
+            <label for="user-email">Your Email (optional):</label>
+            <input type="email" id="user-email" name="userEmail" placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="change-request">Change Request:</label>
+            <textarea id="change-request" name="changeRequest" rows="4" placeholder="Describe the changes or improvements you'd like to see..." required></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" id="cancel-feedback" class="btn-secondary">Cancel</button>
+            <button type="submit" class="btn-primary">Send Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- JavaScript file -->
   <script src="script.js"></script>
