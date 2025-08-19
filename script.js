@@ -650,6 +650,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeFeedbackModal();
   
   // Initialize about modal
+  console.log('Initializing About modal...'); // Debug log
   initializeAboutModal();
 });
 
@@ -737,8 +738,23 @@ function initializeAboutModal() {
   const modal = document.getElementById('about-modal');
   const closeBtn = document.getElementById('close-about');
   
+  // Check if all elements exist
+  if (!aboutBtn) {
+    console.error('About button not found');
+    return;
+  }
+  if (!modal) {
+    console.error('About modal not found');
+    return;
+  }
+  if (!closeBtn) {
+    console.error('Close about button not found');
+    return;
+  }
+  
   // Open modal
   aboutBtn.addEventListener('click', () => {
+    console.log('About button clicked'); // Debug log
     modal.classList.add('show');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden'; // Prevent background scroll
