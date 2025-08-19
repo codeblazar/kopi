@@ -41,6 +41,13 @@
   transition: all 0.2s ease;
   box-shadow: 0 1px 4px rgba(102, 126, 234, 0.2);
   opacity: 0.8;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 44px; /* Ensure minimum touch target size */
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .feedback-btn:hover {
@@ -51,6 +58,19 @@
 
 .feedback-btn:active {
   transform: translateY(0);
+}
+
+/* Mobile touch support for feedback buttons */
+@media (hover: none) and (pointer: coarse) {
+  .feedback-btn {
+    opacity: 1; /* Remove opacity fade on touch devices */
+    padding: 0.5rem 1rem; /* Slightly larger padding for easier touch */
+  }
+  
+  .feedback-btn:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  }
 }
 
 .footer-copyright {

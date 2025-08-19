@@ -752,13 +752,20 @@ function initializeAboutModal() {
     return;
   }
   
-  // Open modal
-  aboutBtn.addEventListener('click', () => {
-    console.log('About button clicked'); // Debug log
+  // Open modal with unified event handler for better mobile support
+  function openAboutModal() {
+    console.log('About modal opening...'); // Debug log
     modal.classList.add('show');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden'; // Prevent background scroll
-  });
+  }
+  
+  // Add both click and touchstart for maximum compatibility
+  aboutBtn.addEventListener('click', openAboutModal);
+  aboutBtn.addEventListener('touchstart', (e) => {
+    // Add a small delay to prevent conflicts with other touch events
+    setTimeout(openAboutModal, 10);
+  }, { passive: true });
   
   // Close modal function
   function closeModal() {
