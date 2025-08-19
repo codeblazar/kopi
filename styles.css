@@ -1158,6 +1158,11 @@ main h2 {
   .coffee-name {
     font-size: 1.2rem;
   }
+  
+  /* Fix modal height on larger screens to account for footer */
+  .modal-content {
+    max-height: calc(100vh - 120px); /* Account for footer height */
+  }
 }
 
 @media (max-width: 480px) {

@@ -5,11 +5,14 @@ function getDrinkEmoji(drinkName) {
   if (drinkName.includes('kopi')) return '☕';
   if (drinkName.includes('teh')) return '🍃';
   if (drinkName.includes('milo')) return '🍫';
+  if (drinkName.includes('horlicks')) return '☕';
+  if (drinkName.includes('ovaltine')) return '🍫';
   if (['coca-cola', 'pepsi', 'sprite'].includes(drinkName)) return '🥤';
   if (drinkName.includes('juice')) return '🧃';
   if (drinkName.includes('barley')) return '🌾';
   if (drinkName.includes('soybean')) return '🥛';
   if (drinkName.includes('bandung')) return '🌸';
+  if (drinkName.includes('ice-lemon-tea')) return '🧊';
   if (drinkName === 'custom-order') return '📝';
   return '🥤';
 }
