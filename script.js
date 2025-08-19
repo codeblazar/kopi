@@ -545,13 +545,13 @@ function showAddedFeedback(variant) {
   menuItem.classList.add('just-added');
   addButton.classList.add('just-added', 'success-text');
   
-  // Change button text to checkmark
-  addButton.textContent = '✓ Added';
+  // Change button text to checkmark only
+  addButton.textContent = '✓';
   
   // Add success indicator
   const successIndicator = document.createElement('span');
   successIndicator.className = 'add-success-indicator';
-  successIndicator.textContent = '✓ Added to order';
+  successIndicator.textContent = 'Added!';
   menuItem.style.position = 'relative';
   menuItem.appendChild(successIndicator);
   

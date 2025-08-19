@@ -714,7 +714,7 @@ main h2 {
 /* Add success indicator text */
 .add-success-indicator {
   position: absolute;
-  right: 1rem;
+  right: 70px; /* Position it to the left of the add button */
   top: 50%;
   transform: translateY(-50%);
   color: #4caf50;
@@ -724,6 +724,7 @@ main h2 {
   animation: fadeInOut 1.5s ease;
   z-index: 1;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 @keyframes fadeInOut {
@@ -736,7 +737,7 @@ main h2 {
 /* Mobile-specific adjustments for success feedback */
 @media (max-width: 480px) {
   .add-success-indicator {
-    right: 0.5rem;
+    right: 60px; /* Adjusted for mobile */
     font-size: 0.8rem;
   }
   
