@@ -453,6 +453,11 @@ function handleAddFromSummary(variant) {
     orderCount[variant] = { count: 0, notes: '' };
   }
   
+  // Add to order sequence if it's not already there (handles re-adding removed items)
+  if (!orderSequence.includes(variant)) {
+    orderSequence.push(variant);
+  }
+  
   orderCount[variant].count += 1;
   
   // Handle custom order notes
@@ -499,10 +504,11 @@ function handleAdd(variant) {
   
   if (!orderCount[variant]) {
     orderCount[variant] = { count: 0, notes: '' };
-    // Add to order sequence if it's a new item
-    if (!orderSequence.includes(variant)) {
-      orderSequence.push(variant);
-    }
+  }
+  
+  // Add to order sequence if it's not already there (handles re-adding removed items)
+  if (!orderSequence.includes(variant)) {
+    orderSequence.push(variant);
   }
   
   orderCount[variant].count += 1;
