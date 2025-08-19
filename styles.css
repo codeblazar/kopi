@@ -828,25 +828,6 @@ main h2 {
   color: white;
 }
 
-/* Default modifier styling */
-.modifier-option.modifier-default {
-  background: #e8f5e8;
-  border-color: #4caf50;
-  color: #2e7d32;
-  font-weight: 600;
-}
-
-.modifier-option.modifier-default:hover {
-  background: #c8e6c9;
-  border-color: #388e3c;
-}
-
-.modifier-option.modifier-default.selected {
-  background: #4caf50;
-  border-color: #4caf50;
-  color: white;
-}
-
 .modifier-footer {
   padding: 1.5rem;
   border-top: 2px solid #f0f0f0;

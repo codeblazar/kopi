@@ -353,9 +353,6 @@ function createModifierModal(baseDrink) {
           <div class="modifier-group" data-group="${groupKey}">
             <h4 class="modifier-group-title">${group.name}</h4>
             <div class="modifier-options">
-              <button type="button" class="modifier-option modifier-default selected" data-modifier="default">
-                Default
-              </button>
               ${group.options.map(option => `
                 <button type="button" class="modifier-option" data-modifier="${option}">
                   ${formatDisplayName(option)}
@@ -396,13 +393,17 @@ function createModifierModal(baseDrink) {
       const groupKey = group.dataset.group;
       const modifier = btn.dataset.modifier;
       
-      // Deselect all options in the same group
-      group.querySelectorAll('.modifier-option').forEach(otherBtn => {
-        otherBtn.classList.remove('selected');
-      });
-      
-      // Select the clicked option
-      btn.classList.add('selected');
+      // Toggle behavior: if already selected, unselect it
+      if (btn.classList.contains('selected')) {
+        btn.classList.remove('selected');
+      } else {
+        // Deselect all options in the same group first
+        group.querySelectorAll('.modifier-option').forEach(otherBtn => {
+          otherBtn.classList.remove('selected');
+        });
+        // Select the clicked option
+        btn.classList.add('selected');
+      }
       
       // Update preview
       updateModifierPreview(modal, baseDrink, preview);
@@ -433,10 +434,7 @@ function getSelectedModifiers(modal) {
   const selected = [];
   modal.querySelectorAll('.modifier-option.selected').forEach(btn => {
     const modifier = btn.dataset.modifier;
-    // Only add non-default modifiers
-    if (modifier !== 'default') {
-      selected.push(modifier);
-    }
+    selected.push(modifier);
   });
   return selected;
 }
